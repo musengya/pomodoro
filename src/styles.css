@@ -1,0 +1,40 @@
+body {
+  background-color: aqua;
+  line-height: 1.5px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  margin-bottom: 10px;
+  font-size: 5em;
+  gap: 16px;
+}
+.timer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 5em;
+  margin-bottom: 50px;
+}
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-1 {
+  margin-right: 16px;
+  margin-top: 10px;
+  height: 30px;
+  width: 60px;
+  font-size: 1em;
+}
+.btn-2 {
+  margin-left: 16px;
+  margin-top: 10px;
+  height: 30px;
+  width: 60px;
+  font-size: 1em;
+}
