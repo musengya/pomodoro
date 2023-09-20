@@ -2,11 +2,14 @@ import React from 'react';
 
 function App() {
   const [timeRemaining, setTimeremaining] = React.useState(25 * 60);
-
+  const intervalRef = React.useRef(null);
   function startTimer() {
-    setInterval(() => {
+    intervalRef.current = setInterval(() => {
       setTimeremaining((timeRemaining) => timeRemaining - 1);
     }, 1000);
+  }
+  function stopTimer() {
+    clearInterval(intervalRef.current);
   }
 
   const minutes = Math.floor(timeRemaining / 60)
@@ -28,7 +31,9 @@ function App() {
         <button onClick={startTimer} className="btn-1">
           Start
         </button>
-        <button className="btn-2">Stop</button>
+        <button onClick={stopTimer} className="btn-2">
+          Stop
+        </button>
       </div>
     </>
   );
