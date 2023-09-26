@@ -1,15 +1,29 @@
 import React from 'react';
-
+const time = 5;
 function App() {
-  const [timeRemaining, setTimeremaining] = React.useState(25 * 60);
+  const [timeRemaining, setTimeremaining] = React.useState(time);
+  const [isRunning, setIsRunning] = React.useState(false);
   const intervalRef = React.useRef(null);
+  React.useEffect(() => {
+    if (timeRemaining === 0) {
+      resetTimer();
+    }
+  }, [timeRemaining]);
   function startTimer() {
+    setIsRunning(true);
     intervalRef.current = setInterval(() => {
       setTimeremaining((timeRemaining) => timeRemaining - 1);
     }, 1000);
   }
-  function stopTimer() {
+  function pauseTimer() {
     clearInterval(intervalRef.current);
+    setIsRunning(false);
+  }
+  function resetTimer() {
+    clearInterval(intervalRef.current);
+    setTimeremaining(time);
+
+    setIsRunning(false);
   }
 
   const minutes = Math.floor(timeRemaining / 60)
@@ -28,11 +42,18 @@ function App() {
         <span>{seconds}</span>
       </div>
       <div className="buttons">
-        <button onClick={startTimer} className="btn-1">
-          Start
-        </button>
-        <button onClick={stopTimer} className="btn-2">
-          Stop
+        {!isRunning && (
+          <button onClick={startTimer} className="btn-1">
+            Start
+          </button>
+        )}
+        {isRunning && (
+          <button onClick={pauseTimer} className="btn-2">
+            Pause
+          </button>
+        )}
+        <button disabled={isRunning | (timeRemaining === time) ? true : false} onClick={resetTimer} className="btn-3">
+          Reset
         </button>
       </div>
     </>

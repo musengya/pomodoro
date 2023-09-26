@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 body {
   background-color: aqua;
   line-height: 1.5px;
@@ -32,6 +35,13 @@ body {
   font-size: 1em;
 }
 .btn-2 {
+  margin-left: 16px;
+  margin-top: 10px;
+  height: 30px;
+  width: 60px;
+  font-size: 1em;
+}
+.btn-3 {
   margin-left: 16px;
   margin-top: 10px;
   height: 30px;
