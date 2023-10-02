@@ -52,7 +52,7 @@ function App() {
             Pause
           </button>
         )}
-        <button disabled={isRunning | (timeRemaining === time) ? true : false} onClick={resetTimer} className="btn-3">
+        <button disabled={isRunning || timeRemaining === time} onClick={resetTimer} className="btn-3">
           Reset
         </button>
       </div>
