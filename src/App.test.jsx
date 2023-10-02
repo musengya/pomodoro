@@ -26,9 +26,10 @@ describe('App', () => {
 
   test('it displays timer', () => {
     render(<App />);
-    expect(screen.findByText(/00/i)).toBeDefined();
-    expect(screen.findByText(/:/i)).toBeDefined();
-    expect(screen.findByText(/05/i)).toBeDefined();
+    expect(screen.getByLabelText(/00:05/i)).toBeDefined();
+    // expect(screen.findByText(/00/i)).toBeDefined();
+    // expect(screen.findByText(/:/i)).toBeDefined();
+    // expect(screen.findByText(/05/i)).toBeDefined();
   });
 
   test('disable the reset button when the timer is running', () => {
