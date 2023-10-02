@@ -36,7 +36,7 @@ function App() {
       <div className="title">
         <h1>Pomodoro</h1>
       </div>
-      <div className="timer">
+      <div className="timer" aria-label={`${minutes}:${seconds}`}>
         <span>{minutes}</span>
         <span>:</span>
         <span>{seconds}</span>

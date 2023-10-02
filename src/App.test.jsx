@@ -41,15 +41,20 @@ describe('App', () => {
     expect(screen.getByRole('button', { name: /reset/i })).toBeEnabled();
   });
 
+  test('resets the timer to the original time when the reset button is clicked', () => {
+    render(<App />);
+    fireEvent.click(screen.getByRole('button', { name: /start/i }));
+    vi.advanceTimersByTime(3_000);
+    fireEvent.click(screen.getByRole('button', { name: /pause/i }));
+    expect(screen.getByLabelText(/00:02/i)).toBeDefined();
+    fireEvent.click(screen.getByRole('button', { name: /reset/i }));
+    expect(screen.getByLabelText(/00:05/i)).toBeDefined();
+    expect(screen.getByRole('button', { name: /start/i })).toBeEnabled();
+    expect(screen.getByRole('button', { name: /reset/i })).toBeDisabled();
+  });
+
   test('timer resets to the original time when time elapses after clicking the start button', () => {
     render(<App />);
-    // vi.advanceTimersByTime(3_000);
-    // fireEvent.click(screen.getByRole('button', { name: /reset/i }));
-    // expect(screen.findByText(/00/i)).toBeDefined();
-    // expect(screen.findByText(/:/i)).toBeDefined();
-    // expect(screen.findByText(/05/i)).toBeDefined();
-    // expect(screen.getByRole('button', { name: /start/i })).toBeEnabled();
-    // expect(screen.getByRole('button', { name: /reset/i })).toBeDisabled();
 
     // vi.advanceTimersByTime(100_000);
     // const timeLapsed = {
