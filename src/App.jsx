@@ -37,9 +37,7 @@ function App() {
         <h1>Pomodoro</h1>
       </div>
       <div className="timer" aria-label={`${minutes}:${seconds}`}>
-        <span>{minutes}</span>
-        <span>:</span>
-        <span>{seconds}</span>
+        <span>{`${minutes}:${seconds}`}</span>
       </div>
       <div className="buttons">
         {!isRunning && (
