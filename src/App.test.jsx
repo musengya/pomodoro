@@ -1,5 +1,5 @@
 import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
-import { fireEvent, render, screen, cleanup } from '@testing-library/react';
+import { fireEvent, render, screen, cleanup, act } from '@testing-library/react';
 import '@testing-library/jest-dom/vitest';
 import App from './App';
 
@@ -55,16 +55,18 @@ describe('App', () => {
 
   test('timer resets to the original time when time elapses after clicking the start button', () => {
     render(<App />);
-
-    // vi.advanceTimersByTime(100_000);
-    // const timeLapsed = {
-    //   time: /00:05/i,
-    // };
-    // expect(timeLapsed.time).toStrictEqual(/00:05/i);
-    // // expect(screen.findByText(/00/i)).toBeDefined();
-    // //expect(screen.findByText(/:/i)).toBeDefined();
-    // // expect(screen.findByText(/05/i)).toBeDefined();
-    // expect(screen.getByRole('button', { name: /start/i })).toBeEnabled();
-    // expect(screen.getByRole('button', { name: /reset/i })).toBeDisabled();
+    fireEvent.click(screen.getByRole('button', { name: /start/i }));
+    /**
+     * We wrap the `advanceTimersByTime` function in an `act` call because it is updating React state outside
+     * React's call stack and the assertions do not wait for these updates to happen.
+     * The `act` function prepares the component for assertions by flushing all the state updated and running all
+     * the effects so that the component behaves closer to how React works in the browser.
+     * https://legacy.reactjs.org/docs/test-utils.html#act
+     * https://kentcdodds.com/blog/fix-the-not-wrapped-in-act-warning
+     */
+    act(() => vi.advanceTimersByTime(5_000));
+    expect(screen.getByLabelText(/00:05/i)).toBeDefined();
+    expect(screen.getByRole('button', { name: /start/i })).toBeEnabled();
+    expect(screen.getByRole('button', { name: /reset/i })).toBeDisabled();
   });
 });
