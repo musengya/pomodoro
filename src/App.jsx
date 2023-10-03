@@ -37,9 +37,9 @@ function App() {
         <h1>Pomodoro</h1>
       </div>
       <div className="schedule">
-        <button>pomodoro</button>
-        <button>short break</button>
-        <button>long break</button>
+        <button className="pomo">pomodoro</button>
+        <button className="shortbreak">short break</button>
+        <button className="longbreak">long break</button>
       </div>
       <div className="timer" aria-label={`${minutes}:${seconds}`}>
         <span>{`${minutes}:${seconds}`}</span>
