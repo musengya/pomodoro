@@ -30,6 +30,9 @@ function App() {
     .toString()
     .padStart(2, '0');
   const seconds = (timeRemaining - minutes * 60).toString().padStart(2, '0');
+  function handlePomodoro() {
+    alert('Focus time!');
+  }
 
   return (
     <>
@@ -37,7 +40,9 @@ function App() {
         <h1>Pomodoro</h1>
       </div>
       <div className="schedule">
-        <button className="pomo">pomodoro</button>
+        <button className="pomodoro" onClick={handlePomodoro}>
+          pomodoro
+        </button>
         <button className="shortbreak">short break</button>
         <button className="longbreak">long break</button>
       </div>
