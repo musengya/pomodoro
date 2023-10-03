@@ -36,6 +36,11 @@ function App() {
       <div className="title">
         <h1>Pomodoro</h1>
       </div>
+      <div className="schedule">
+        <button>pomodoro</button>
+        <button>short break</button>
+        <button>long break</button>
+      </div>
       <div className="timer" aria-label={`${minutes}:${seconds}`}>
         <span>{`${minutes}:${seconds}`}</span>
       </div>
