@@ -41,10 +41,10 @@ function App() {
       </div>
       <div className="schedule">
         <button className="pomodoro" onClick={handlePomodoro}>
-          pomodoro
+          Pomodoro
         </button>
-        <button className="shortbreak">short break</button>
-        <button className="longbreak">long break</button>
+        <button className="shortbreak">Short break</button>
+        <button className="longbreak">Long break</button>
       </div>
       <div className="timer" aria-label={`${minutes}:${seconds}`}>
         <span>{`${minutes}:${seconds}`}</span>
