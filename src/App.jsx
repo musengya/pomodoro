@@ -64,10 +64,8 @@ function App() {
           Reset
         </button>
       </div>
-      <div className="timertext">
-        <div>#1</div>
-        <div>Time to focus</div>
-      </div>
+
+      <div className="timertext">Time to focus</div>
     </>
   );
 }
