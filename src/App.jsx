@@ -1,8 +1,10 @@
 import React from 'react';
-const time = 5;
+const initialTime = 5;
+//const initialText = 'Time to focus';
 function App() {
-  const [timeRemaining, setTimeremaining] = React.useState(time);
+  const [timeRemaining, setTimeremaining] = React.useState(initialTime);
   const [isRunning, setIsRunning] = React.useState(false);
+  //const [showMessage, setShowMessage] = React.useState(initialText);
   const intervalRef = React.useRef(null);
   React.useEffect(() => {
     if (timeRemaining === 0) {
@@ -21,18 +23,23 @@ function App() {
   }
   function resetTimer() {
     clearInterval(intervalRef.current);
-    setTimeremaining(time);
+    setTimeremaining(initialTime);
 
     setIsRunning(false);
+  }
+  function handlePomodoro() {
+    return (
+      <div>
+        {' '}
+        <p>time to focus</p>
+      </div>
+    );
   }
 
   const minutes = Math.floor(timeRemaining / 60)
     .toString()
     .padStart(2, '0');
   const seconds = (timeRemaining - minutes * 60).toString().padStart(2, '0');
-  function handlePomodoro() {
-    alert('Focus time!');
-  }
 
   return (
     <>
@@ -40,9 +47,10 @@ function App() {
         <h1>Pomodoro</h1>
       </div>
       <div className="schedule">
-        <button className="pomodoro" onClick={handlePomodoro}>
+        <button onClick={handlePomodoro} className="pomodoro">
           Pomodoro
         </button>
+
         <button className="shortbreak">Short break</button>
         <button className="longbreak">Long break</button>
       </div>
@@ -60,12 +68,12 @@ function App() {
             Pause
           </button>
         )}
-        <button disabled={isRunning || timeRemaining === time} onClick={resetTimer} className="btn-3">
+        <button disabled={isRunning || timeRemaining === initialTime} onClick={resetTimer} className="btn-3">
           Reset
         </button>
       </div>
 
-      <div className="timertext">Time to focus</div>
+      {/* <div className="timertext">Time to focus</div> */}
     </>
   );
 }
