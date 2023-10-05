@@ -28,14 +28,6 @@ function App() {
 
     setIsRunning(false);
   }
-  function handlePomodoro() {
-    return (
-      <div>
-        {' '}
-        <p>time to focus</p>
-      </div>
-    );
-  }
 
   const minutes = Math.floor(timeRemaining / 60)
     .toString()
