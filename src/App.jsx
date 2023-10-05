@@ -50,7 +50,6 @@ function App() {
         <button onClick={handlePomodoro} className="pomodoro">
           Pomodoro
         </button>
-
         <button className="shortbreak">Short break</button>
         <button className="longbreak">Long break</button>
       </div>
