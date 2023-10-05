@@ -1,4 +1,4 @@
-import { Box, Tabs, Text } from '@radix-ui/themes';
+import { Box, Container, Flex, Heading, Tabs, Text } from '@radix-ui/themes';
 import React from 'react';
 const initialTime = 5;
 //const initialText = 'Time to focus';
@@ -43,50 +43,52 @@ function App() {
   const seconds = (timeRemaining - minutes * 60).toString().padStart(2, '0');
 
   return (
-    <>
-      <div className="title">
-        <h1>Pomodoro</h1>
-      </div>
+    <Container size="1" style={{ marginTop: '32px' }}>
+      <Flex direction="column" gap="8">
+        <Heading as="h1" size="9">
+          Pomodoro
+        </Heading>
 
-      <Tabs.Root defaultValue="pomodoro">
-        <Tabs.List>
-          <Tabs.Trigger value="pomodoro">Pomodoro</Tabs.Trigger>
-          <Tabs.Trigger value="short-break">Short break</Tabs.Trigger>
-          <Tabs.Trigger value="long-break">Long break</Tabs.Trigger>
-        </Tabs.List>
+        <Tabs.Root defaultValue="pomodoro">
+          <Tabs.List>
+            <Tabs.Trigger value="pomodoro">Pomodoro</Tabs.Trigger>
+            <Tabs.Trigger value="short-break">Short break</Tabs.Trigger>
+            <Tabs.Trigger value="long-break">Long break</Tabs.Trigger>
+          </Tabs.List>
 
-        <Box px="4" pt="3" pb="2">
-          <Tabs.Content value="pomodoro">
-            <div className="timer" aria-label={`${minutes}:${seconds}`}>
-              <span>{`${minutes}:${seconds}`}</span>
-            </div>
-            <div className="buttons">
-              {!isRunning && (
-                <button onClick={startTimer} className="btn-1">
-                  Start
+          <Box px="4" pt="3" pb="2">
+            <Tabs.Content value="pomodoro">
+              <div className="timer" aria-label={`${minutes}:${seconds}`}>
+                <span>{`${minutes}:${seconds}`}</span>
+              </div>
+              <div className="buttons">
+                {!isRunning && (
+                  <button onClick={startTimer} className="btn-1">
+                    Start
+                  </button>
+                )}
+                {isRunning && (
+                  <button onClick={pauseTimer} className="btn-2">
+                    Pause
+                  </button>
+                )}
+                <button disabled={isRunning || timeRemaining === initialTime} onClick={resetTimer} className="btn-3">
+                  Reset
                 </button>
-              )}
-              {isRunning && (
-                <button onClick={pauseTimer} className="btn-2">
-                  Pause
-                </button>
-              )}
-              <button disabled={isRunning || timeRemaining === initialTime} onClick={resetTimer} className="btn-3">
-                Reset
-              </button>
-            </div>
-          </Tabs.Content>
+              </div>
+            </Tabs.Content>
 
-          <Tabs.Content value="short-break">
-            <Text size="2">Access and update your documents.</Text>
-          </Tabs.Content>
+            <Tabs.Content value="short-break">
+              <Text size="2">Access and update your documents.</Text>
+            </Tabs.Content>
 
-          <Tabs.Content value="long-break">
-            <Text size="2">Edit your profile or update contact information.</Text>
-          </Tabs.Content>
-        </Box>
-      </Tabs.Root>
-    </>
+            <Tabs.Content value="long-break">
+              <Text size="2">Edit your profile or update contact information.</Text>
+            </Tabs.Content>
+          </Box>
+        </Tabs.Root>
+      </Flex>
+    </Container>
   );
 }
 
