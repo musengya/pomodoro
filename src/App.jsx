@@ -38,7 +38,7 @@ function App() {
   const seconds = (timeRemaining - minutes * 60).toString().padStart(2, '0');
 
   return (
-    <Container size="1" style={{ marginTop: '32px' }}>
+    <Container size="1" style={{ marginTop: '32px', backgroundColor: 'greenyellow' }}>
       <Flex direction="column" gap="8" align="center">
         <Heading as="h1" size="9">
           Pomodoro
