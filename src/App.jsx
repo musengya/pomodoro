@@ -1,11 +1,11 @@
 import { Box, Container, Flex, Heading, Tabs, Text } from '@radix-ui/themes';
 import React from 'react';
 const initialTime = 5;
-//const initialText = 'Time to focus';
+
 function App() {
   const [timeRemaining, setTimeremaining] = React.useState(initialTime);
   const [isRunning, setIsRunning] = React.useState(false);
-  //const [showMessage, setShowMessage] = React.useState(initialText);
+
   const intervalRef = React.useRef(null);
   React.useEffect(() => {
     if (timeRemaining === 0) {
@@ -71,7 +71,24 @@ function App() {
             </Tabs.Content>
 
             <Tabs.Content value="short-break">
-              <Text size="2">Access and update your documents.</Text>
+              <div className="timer" aria-label={`${minutes}:${seconds}`}>
+                <span>{`${minutes}:${seconds}`}</span>
+              </div>
+              <div className="buttons">
+                {!isRunning && (
+                  <button onClick={startTimer} className="btn-1">
+                    Start
+                  </button>
+                )}
+                {isRunning && (
+                  <button onClick={pauseTimer} className="btn-2">
+                    Pause
+                  </button>
+                )}
+                <button disabled={isRunning || timeRemaining === initialTime} onClick={resetTimer} className="btn-3">
+                  Reset
+                </button>
+              </div>
             </Tabs.Content>
 
             <Tabs.Content value="long-break">
