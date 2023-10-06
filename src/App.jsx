@@ -1,9 +1,12 @@
 import { Box, Container, Flex, Heading, Tabs, Text } from '@radix-ui/themes';
 import React from 'react';
-const initialTime = 5;
+
+const initialTime = 1500;
+//const shortBreak = 300;
 
 function App() {
   const [timeRemaining, setTimeremaining] = React.useState(initialTime);
+
   const [isRunning, setIsRunning] = React.useState(false);
 
   const intervalRef = React.useRef(null);
@@ -24,9 +27,9 @@ function App() {
   }
   function resetTimer() {
     clearInterval(intervalRef.current);
-    setTimeremaining(initialTime);
-
     setIsRunning(false);
+
+    setTimeremaining(initialTime);
   }
 
   const minutes = Math.floor(timeRemaining / 60)
