@@ -36,7 +36,7 @@ function App() {
 
   return (
     <Container size="1" style={{ marginTop: '32px' }}>
-      <Flex direction="column" gap="8">
+      <Flex direction="column" gap="8" align="center">
         <Heading as="h1" size="9">
           Pomodoro
         </Heading>
