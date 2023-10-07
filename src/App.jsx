@@ -2,7 +2,7 @@ import { Box, Container, Flex, Heading, Tabs, Text } from '@radix-ui/themes';
 import React from 'react';
 
 const initialTime = 1500;
-//const shortBreak = 300;
+const shortBreak = 300;
 
 function App() {
   const [timeRemaining, setTimeremaining] = React.useState(initialTime);
@@ -10,6 +10,7 @@ function App() {
   const [isRunning, setIsRunning] = React.useState(false);
 
   const intervalRef = React.useRef(null);
+
   React.useEffect(() => {
     if (timeRemaining === 0) {
       resetTimer();
@@ -28,7 +29,6 @@ function App() {
   function resetTimer() {
     clearInterval(intervalRef.current);
     setIsRunning(false);
-
     setTimeremaining(initialTime);
   }
 
@@ -75,7 +75,7 @@ function App() {
 
             <Tabs.Content value="short-break">
               <div className="timer" aria-label={`${minutes}:${seconds}`}>
-                <span>{`${minutes}:${seconds}`}</span>
+                <span>05:00</span>
               </div>
               <div className="buttons">
                 {!isRunning && (
@@ -88,7 +88,7 @@ function App() {
                     Pause
                   </button>
                 )}
-                <button disabled={isRunning || timeRemaining === initialTime} onClick={resetTimer} className="btn-3">
+                <button disabled={isRunning || timeRemaining === shortBreak} onClick={resetTimer} className="btn-3">
                   Reset
                 </button>
               </div>
