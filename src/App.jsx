@@ -50,7 +50,7 @@ export default function App() {
 
             <Tabs.Content value="short-break">
               <div className="timer" aria-label={`${minutes}:${seconds}`}>
-                <span>05:00</span>
+                <span>{`${minutes}:${seconds}`}</span>
               </div>
               <div className="buttons">
                 {!isRunning && (
