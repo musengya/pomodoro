@@ -1,36 +1,11 @@
 import { Box, Container, Flex, Heading, Tabs, Text } from '@radix-ui/themes';
-import React from 'react';
+import { useTimer } from './hooks/use-timer';
 
-const initialTime = 1500;
+const initialTime = 5;
 const shortBreak = 300;
 
-function App() {
-  const [timeRemaining, setTimeremaining] = React.useState(initialTime);
-
-  const [isRunning, setIsRunning] = React.useState(false);
-
-  const intervalRef = React.useRef(null);
-
-  React.useEffect(() => {
-    if (timeRemaining === 0) {
-      resetTimer();
-    }
-  }, [timeRemaining]);
-  function startTimer() {
-    setIsRunning(true);
-    intervalRef.current = setInterval(() => {
-      setTimeremaining((timeRemaining) => timeRemaining - 1);
-    }, 1000);
-  }
-  function pauseTimer() {
-    clearInterval(intervalRef.current);
-    setIsRunning(false);
-  }
-  function resetTimer() {
-    clearInterval(intervalRef.current);
-    setIsRunning(false);
-    setTimeremaining(initialTime);
-  }
+export default function App() {
+  const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(initialTime);
 
   const minutes = Math.floor(timeRemaining / 60)
     .toString()
@@ -103,5 +78,3 @@ function App() {
     </Container>
   );
 }
-
-export default App;
