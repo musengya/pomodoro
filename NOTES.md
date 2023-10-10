@@ -13,3 +13,6 @@ Example:
 const resetTimer = () => {
 //code goes here
 }
+
+//How do I pass the short break || long break into useTimer?
+//How do I make sure when the Pomodoro stops it resets and then switches to the break tab.
