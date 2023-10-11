@@ -16,3 +16,6 @@ const resetTimer = () => {
 
 //How do I pass the short break || long break into useTimer?
 //How do I make sure when the Pomodoro stops it resets and then switches to the break tab.
+
+// Use F2 key to help rename a symbol in your file
+//Use F12 to find similar symbols in the file
