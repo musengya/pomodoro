@@ -27,7 +27,7 @@ export default function App() {
             </Tabs.Content>
 
             <Tabs.Content value="long-break">
-              <Text size="2">Edit your profile or update contact information.</Text>
+              <Timer initialTime={15} />
             </Tabs.Content>
           </Box>
         </Tabs.Root>
