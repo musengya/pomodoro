@@ -1,8 +1,8 @@
 import { Box, Container, Flex, Heading, Tabs, Text } from '@radix-ui/themes';
 import { useTimer } from './hooks/use-timer';
+import Timer from './components/Timer';
 
 const initialTime = 5;
-const shortBreak = 300;
 
 export default function App() {
   const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(initialTime);
@@ -28,45 +28,27 @@ export default function App() {
 
           <Box px="4" pt="3" pb="2">
             <Tabs.Content value="pomodoro">
-              <div className="timer" aria-label={`${minutes}:${seconds}`}>
-                <span>{`${minutes}:${seconds}`}</span>
-              </div>
-              <div className="buttons">
-                {!isRunning && (
-                  <button onClick={startTimer} className="btn-1">
-                    Start
-                  </button>
-                )}
-                {isRunning && (
-                  <button onClick={pauseTimer} className="btn-2">
-                    Pause
-                  </button>
-                )}
-                <button disabled={isRunning || timeRemaining === initialTime} onClick={resetTimer} className="btn-3">
-                  Reset
-                </button>
-              </div>
+              <Timer
+                minutes={minutes}
+                seconds={seconds}
+                isRunning={isRunning}
+                startTimer={startTimer}
+                pauseTimer={pauseTimer}
+                resetTimer={resetTimer}
+                canReset={!isRunning && timeRemaining !== initialTime}
+              />
             </Tabs.Content>
 
             <Tabs.Content value="short-break">
-              <div className="timer" aria-label={`${minutes}:${seconds}`}>
-                <span>{`${minutes}:${seconds}`}</span>
-              </div>
-              <div className="buttons">
-                {!isRunning && (
-                  <button onClick={startTimer} className="btn-1">
-                    Start
-                  </button>
-                )}
-                {isRunning && (
-                  <button onClick={pauseTimer} className="btn-2">
-                    Pause
-                  </button>
-                )}
-                <button disabled={isRunning || timeRemaining === shortBreak} onClick={resetTimer} className="btn-3">
-                  Reset
-                </button>
-              </div>
+              <Timer
+                minutes={minutes}
+                seconds={seconds}
+                isRunning={isRunning}
+                startTimer={startTimer}
+                pauseTimer={pauseTimer}
+                resetTimer={resetTimer}
+                canReset={!isRunning && timeRemaining !== initialTime}
+              />
             </Tabs.Content>
 
             <Tabs.Content value="long-break">
