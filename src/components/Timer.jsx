@@ -1,16 +1,20 @@
 import PropTypes from 'prop-types';
+import { useTimer } from '../hooks/use-timer';
 
 Timer.propTypes = {
-  minutes: PropTypes.string.isRequired,
-  seconds: PropTypes.string.isRequired,
-  isRunning: PropTypes.bool.isRequired,
-  startTimer: PropTypes.func.isRequired,
-  pauseTimer: PropTypes.func.isRequired,
-  resetTimer: PropTypes.func.isRequired,
-  canReset: PropTypes.bool.isRequired,
+  initialTime: PropTypes.number.isRequired,
 };
 
-export default function Timer({ minutes, seconds, isRunning, startTimer, pauseTimer, resetTimer, canReset }) {
+export default function Timer({ initialTime }) {
+  const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(initialTime);
+
+  const minutes = Math.floor(timeRemaining / 60)
+    .toString()
+    .padStart(2, '0');
+  const seconds = (timeRemaining - minutes * 60).toString().padStart(2, '0');
+
+  const canReset = !isRunning && timeRemaining !== initialTime;
+
   return (
     <>
       <div className="timer" aria-label={`${minutes}:${seconds}`}>
