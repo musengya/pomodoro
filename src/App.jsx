@@ -1,5 +1,5 @@
-import { Box, Container, Flex, Heading, Tabs, Text } from '@radix-ui/themes';
-import { useTimer } from './hooks/use-timer';
+import { Box, Container, Flex, Heading, Tabs } from '@radix-ui/themes';
+
 import Timer from './components/Timer';
 
 export default function App() {
