@@ -1,12 +1,20 @@
 import PropTypes from 'prop-types';
 import { useTimer } from '../hooks/use-timer';
+import { useEffect } from 'react';
 
 Timer.propTypes = {
   initialTime: PropTypes.number.isRequired,
+  switchMode: PropTypes.func.isRequired,
 };
 
-export default function Timer({ initialTime }) {
+export default function Timer({ initialTime, switchMode }) {
   const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(initialTime);
+
+  useEffect(() => {
+    if (timeRemaining === 0) {
+      switchMode();
+    }
+  }, [switchMode, timeRemaining]);
 
   const minutes = Math.floor(timeRemaining / 60)
     .toString()
