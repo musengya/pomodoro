@@ -11,7 +11,7 @@ export default function App() {
         </Heading>
 
         <Tabs.Root defaultValue="pomodoro">
-          <Tabs.List>
+          <Tabs.List style={{ fontSize: '30px' }}>
             <Tabs.Trigger value="pomodoro">Pomodoro</Tabs.Trigger>
             <Tabs.Trigger value="short-break">Short break</Tabs.Trigger>
             <Tabs.Trigger value="long-break">Long break</Tabs.Trigger>
