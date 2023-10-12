@@ -3,15 +3,28 @@ import { Box, Container, Flex, Heading, Tabs } from '@radix-ui/themes';
 import Timer from './components/Timer';
 import { useState } from 'react';
 
+const longBreakInterval = 4;
+
 export default function App() {
   const [mode, setMode] = useState('pomodoro');
+  const [session, setSession] = useState(1);
 
   function updateMode(value) {
     setMode(value);
   }
 
   function switchMode() {
-    setMode('short-break');
+    if (mode === 'pomodoro') {
+      if (session === longBreakInterval) {
+        setMode('long-break');
+        setSession(0);
+      } else {
+        setMode('short-break');
+      }
+    } else {
+      setMode('pomodoro');
+      setSession(session + 1);
+    }
   }
 
   return (
@@ -30,15 +43,15 @@ export default function App() {
 
           <Box px="4" pt="3" pb="2">
             <Tabs.Content value="pomodoro">
-              <Timer initialTime={5} switchMode={switchMode} />
+              <Timer initialTime={2} switchMode={switchMode} />
             </Tabs.Content>
 
             <Tabs.Content value="short-break">
-              <Timer initialTime={10} switchMode={switchMode} />
+              <Timer initialTime={1} switchMode={switchMode} />
             </Tabs.Content>
 
             <Tabs.Content value="long-break">
-              <Timer initialTime={15} switchMode={switchMode} />
+              <Timer initialTime={1} switchMode={switchMode} />
             </Tabs.Content>
           </Box>
         </Tabs.Root>
