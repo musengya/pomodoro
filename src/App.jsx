@@ -4,13 +4,13 @@ import Timer from './components/Timer';
 
 export default function App() {
   return (
-    <Container size="1" style={{ marginTop: '32px', backgroundColor: 'greenyellow' }}>
+    <Container size="4" style={{ marginTop: '20px', backgroundColor: 'greenyellow' }}>
       <Flex direction="column" gap="8" align="center">
         <Heading as="h1" size="9">
           Pomodoro
         </Heading>
 
-        <Tabs.Root defaultValue="pomodoro">
+        <Tabs.Root defaultValue="pomodoro" style={{ backgroundColor: 'red' }}>
           <Tabs.List style={{ fontSize: '30px' }}>
             <Tabs.Trigger value="pomodoro">Pomodoro</Tabs.Trigger>
             <Tabs.Trigger value="short-break">Short break</Tabs.Trigger>
