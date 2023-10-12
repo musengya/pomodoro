@@ -37,3 +37,12 @@ optionalSymbol: PropTypes.symbol,
 To make them to be required we use:
 // A value of any data type
 requiredAny: PropTypes.any.isRequired
+
+// todo
+when the pomodoro timer runs out, the focus should change to break and vice versa
+// can we use useNavigate hook from react router to switch from one tab to the next once the timer runs out or when we just want to switch.
+// How do we maintain the state that the previous tab was in before we switched e.g
+If the pomodoro tab was at 3 seconds and we switch to the break tab, then it should remain at the 3 seconds and not reset back to the original time.
+
+QSn:
+difference between return with {} and return with () braces
