@@ -1,8 +1,8 @@
 // @ts-check
 import PropTypes from 'prop-types';
-import { useTimer } from '../hooks/use-timer';
 import { useEffect } from 'react';
-import { formatRemainingTime } from '../utils/helpers';
+import { useTimer } from '../hooks/use-timer.js';
+import { formatRemainingTime } from '../utils/helpers.js';
 
 Timer.propTypes = {
   initialTime: PropTypes.number.isRequired,

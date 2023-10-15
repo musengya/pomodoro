@@ -35,7 +35,6 @@ export function useTimer(initialTime) {
   }, [resetTimer, timeRemaining]);
 
   function startTimer() {
-    if (!intervalRef.current) return;
     setIsRunning(true);
     intervalRef.current = setInterval(() => {
       setTimeremaining((timeRemaining) => timeRemaining - 1);
