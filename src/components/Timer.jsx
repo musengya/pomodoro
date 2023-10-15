@@ -1,7 +1,7 @@
 // @ts-check
 import PropTypes from 'prop-types';
 import { useTimer } from '../hooks/use-timer';
-import React from 'react';
+import { useEffect } from 'react';
 import { formatRemainingTime } from '../utils/helpers';
 
 Timer.propTypes = {
@@ -12,7 +12,7 @@ Timer.propTypes = {
 export default function Timer({ initialTime, switchMode }) {
   const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(initialTime);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (timeRemaining === 0) {
       switchMode();
     }
