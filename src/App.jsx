@@ -2,6 +2,7 @@ import { Box, Container, Flex, Heading, Tabs } from '@radix-ui/themes';
 
 import Timer from './components/Timer';
 import { useState } from 'react';
+import { INITIAL_TIME } from './utils/constants';
 
 const longBreakInterval = 4;
 
@@ -43,15 +44,15 @@ export default function App() {
 
           <Box px="4" pt="3" pb="2">
             <Tabs.Content value="pomodoro">
-              <Timer initialTime={2} switchMode={switchMode} />
+              <Timer initialTime={INITIAL_TIME.pomodoro} switchMode={switchMode} />
             </Tabs.Content>
 
             <Tabs.Content value="short-break">
-              <Timer initialTime={1} switchMode={switchMode} />
+              <Timer initialTime={INITIAL_TIME.shortBreak} switchMode={switchMode} />
             </Tabs.Content>
 
             <Tabs.Content value="long-break">
-              <Timer initialTime={1} switchMode={switchMode} />
+              <Timer initialTime={INITIAL_TIME.longBreak} switchMode={switchMode} />
             </Tabs.Content>
           </Box>
         </Tabs.Root>

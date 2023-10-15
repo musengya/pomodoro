@@ -1,33 +1,18 @@
 // @ts-check
-//const { test, expect } = require('@playwright/test');
 import { test, expect } from '@playwright/test';
+import { formatRemainingTime } from '../src/utils/helpers';
+import { INITIAL_TIME } from '../src/utils/constants';
 
-test('has title', ({ page }) => {
-  //await page.goto('http://127.0.0.1:5173');
-  // Expects page to have a heading with the name of Pomodoro.
-  // await expect(page).toHaveTitle(/Pomodoro/);
-  expect(page.getByRole('heading', { name: 'Pomodoro' })).toBeDefined();
-});
-test('timer is at Pomodoro tab on start', ({ page }) => {
-  expect(page.getByText('Pomodoro')).toBeDefined();
-});
-test('it displays buttons', ({ page }) => {
-  expect(page.getByRole('button', { name: '/Start/i' })).toBeDefined();
-  expect(page.getByRole('button', { name: '/Reset/i' })).toBeDefined();
-});
-test('reset button is disabled when app is opened', ({ page }) => {
-  expect(page.getByRole('button', { name: '/Reset/i' })).toBeDisabled();
-});
+test('pomodoro workflow', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.getByRole('heading', { name: 'Pomodoro' })).toHaveText('Pomodoro');
 
-test('test', async ({ page }) => {
-  await page.goto('http://localhost:5173/');
-  await page.getByLabel('00:02').click();
-  await page.getByRole('button', { name: 'Start' }).click();
-  await page.getByRole('button', { name: 'Start' }).click();
-  await page.getByRole('tab', { name: 'Short break' }).click();
-  await page.getByRole('tab', { name: 'Long break' }).click();
-  await page.getByRole('tab', { name: 'Pomodoro' }).click();
-  await page.getByRole('button', { name: 'Start' }).click();
-  await page.getByRole('button', { name: 'Pause' }).click();
-  expect(page.getByLabel('00:02')).toBeDefined();
+  await expect(page.getByRole('tab', { name: 'Pomodoro' })).toHaveAttribute('aria-selected', 'true');
+  await expect(page.getByRole('tab', { name: 'Short break' })).toHaveAttribute('aria-selected', 'false');
+  await expect(page.getByRole('tab', { name: 'Long break' })).toHaveAttribute('aria-selected', 'false');
+
+  await expect(page.getByTestId('time-remaining')).toHaveText(formatRemainingTime(INITIAL_TIME.pomodoro));
+
+  await expect(page.getByRole('button', { name: 'Start' })).toBeEnabled();
+  await expect(page.getByRole('button', { name: 'Reset' })).toBeDisabled();
 });

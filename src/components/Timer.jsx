@@ -1,6 +1,8 @@
+// @ts-check
 import PropTypes from 'prop-types';
 import { useTimer } from '../hooks/use-timer';
-import { useEffect } from 'react';
+import React from 'react';
+import { formatRemainingTime } from '../utils/helpers';
 
 Timer.propTypes = {
   initialTime: PropTypes.number.isRequired,
@@ -10,23 +12,20 @@ Timer.propTypes = {
 export default function Timer({ initialTime, switchMode }) {
   const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(initialTime);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (timeRemaining === 0) {
       switchMode();
     }
   }, [switchMode, timeRemaining]);
 
-  const minutes = Math.floor(timeRemaining / 60)
-    .toString()
-    .padStart(2, '0');
-  const seconds = (timeRemaining - minutes * 60).toString().padStart(2, '0');
+  const formattedTimeRemaining = formatRemainingTime(timeRemaining);
 
   const canReset = !isRunning && timeRemaining !== initialTime;
 
   return (
     <>
-      <div className="timer" aria-label={`${minutes}:${seconds}`}>
-        <span>{`${minutes}:${seconds}`}</span>
+      <div className="timer" aria-label={formattedTimeRemaining} data-testid="time-remaining">
+        <span>{formattedTimeRemaining}</span>
       </div>
       <div className="buttons">
         {!isRunning && (
