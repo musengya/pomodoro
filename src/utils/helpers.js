@@ -1,7 +1,7 @@
 /**
  *
  * @param {number} timeRemaining
- * @returns string
+ * @returns {string}
  */
 export function formatRemainingTime(timeRemaining) {
   const minutes = Math.floor(timeRemaining / 60);

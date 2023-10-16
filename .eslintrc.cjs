@@ -6,15 +6,23 @@ module.exports = {
     'plugin:react/recommended',
     'plugin:react/jsx-runtime',
     'plugin:react-hooks/recommended',
+    'plugin:jsdoc/recommended-error',
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
   settings: { react: { version: '18.2' } },
   plugins: ['react-refresh'],
   rules: {
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    'jsdoc/no-types': 'off',
+    'jsdoc/no-missing-syntax': 'off',
+    'jsdoc/no-undefined-types': 'off',
+    'jsdoc/no-restricted-syntax': 'off',
+    'jsdoc/require-jsdoc': 'off',
+    'jsdoc/require-description': 'off',
+    'jsdoc/require-param-description': 'off',
+    'jsdoc/require-returns-description': 'off',
+    'jsdoc/require-example': 'off',
+    'jsdoc/require-file-overview': 'off',
   },
-}
+};
