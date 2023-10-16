@@ -1,4 +1,3 @@
-// @ts-check
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useTimer } from '../hooks/use-timer.js';

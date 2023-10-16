@@ -1,8 +1,7 @@
-// @ts-check
 import { Box, Container, Flex, Heading, Tabs } from '@radix-ui/themes';
 
-import Timer from './components/Timer.jsx';
 import { useState } from 'react';
+import Timer from './components/Timer.jsx';
 import { INITIAL_TIME_IN_SECONDS } from './utils/constants.js';
 
 const longBreakInterval = 4;

@@ -1,4 +1,3 @@
-// @ts-check
 import { expect, test } from '@playwright/test';
 import path from 'path';
 import sinon from 'sinon';

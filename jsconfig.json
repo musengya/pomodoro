@@ -2,6 +2,8 @@
   "compilerOptions": {
     "jsx": "preserve",
     "module": "NodeNext",
-    "moduleResolution": "NodeNext"
-  }
+    "moduleResolution": "NodeNext",
+    "checkJs": true
+  },
+  "include": ["src", "e2e", "types.d.ts"]
 }
