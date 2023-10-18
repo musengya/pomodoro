@@ -131,3 +131,12 @@ expect(screen.getByRole('button', { name: /start/i })).toBeEnabled();
 expect(screen.getByRole('button', { name: /reset/i })).toBeDisabled();
 });
 });
+
+Timer throttling
+When application’s tab is inactive, most browsers will throttle tab activities to preserve resources and battery life on the user’s device.
+
+Browser throttling affects timers, audio, video, and other APIs. So if your timer function is set to run every second, it may only run once every few seconds or even minutes when the tab is inactive.
+
+Web Workers allow you to run a script operation on a different thread from your application’s main execution thread.
+
+The timer will continue counting down even when your application’s tab becomes inactive. All major browsers support web workers, so you don’t have to worry about compatibility.
