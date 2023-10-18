@@ -11,6 +11,8 @@ RUN npm ci
 
 COPY . .
 
+RUN npm install -g vite
+
 RUN npm run build
 
 # Stage 2: Serve the React application using Nginx
