@@ -1,12 +1,11 @@
 # Stage 1: Build the React application
 FROM node:18.18.2-bullseye-slim as build
 
-USER node
 ENV NODE_ENV=production
 
 WORKDIR /app
 
-COPY --chown=node:node /package*.json .
+COPY /package*.json .
 
 RUN npm ci
 
