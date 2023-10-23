@@ -3,3 +3,4 @@ export const INITIAL_TIME_IN_SECONDS = {
   shortBreak: 5 * 60,
   longBreak: 15 * 60,
 };
+export const bell_sound = './sounds/bell.mp3';
