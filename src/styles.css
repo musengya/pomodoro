@@ -37,3 +37,8 @@ body {
   font-size: 1em;
   padding: 10px 20px;
 }
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
