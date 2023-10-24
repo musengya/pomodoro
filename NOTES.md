@@ -141,7 +141,7 @@ Web Workers allow you to run a script operation on a different thread from your 
 
 The timer will continue counting down even when your application’s tab becomes inactive. All major browsers support web workers, so you don’t have to worry about compatibility.
 
-
-
 Use git stash when you want to record the current state of the working directory and the index, but want to go back to a clean working directory.
 The modifications stashed away by this command can be listed with git stash list, inspected with git stash show, and restored (potentially on top of a different commit) with git stash apply.
+//const startTime = Date.now();
+//setTimeremaining(Date.now() - startTime);
