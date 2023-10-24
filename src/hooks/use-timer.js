@@ -18,7 +18,6 @@ export function useTimer(initialTime) {
    * @type {React.MutableRefObject<NodeJS.Timeout | null>}
    */
   const intervalRef = useRef(null);
-  //const startTime = Date.now();
 
   const resetTimer = useCallback(() => {
     if (intervalRef.current) {
@@ -38,7 +37,6 @@ export function useTimer(initialTime) {
     setIsRunning(true);
 
     intervalRef.current = setInterval(() => {
-      //setTimeremaining(Date.now() - startTime);
       setTimeremaining((timeRemaining) => timeRemaining - 1);
     }, 1000);
   }
