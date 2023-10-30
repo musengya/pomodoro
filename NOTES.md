@@ -145,3 +145,9 @@ Use git stash when you want to record the current state of the working directory
 The modifications stashed away by this command can be listed with git stash list, inspected with git stash show, and restored (potentially on top of a different commit) with git stash apply.
 //const startTime = Date.now();
 //setTimeremaining(Date.now() - startTime);
+
+-webkit-box-pack: justify;
+-webkit-box-align: center;
+To add some length to a line. we can add width and height to it. For example:
+width: 550px;
+height: 1px;
