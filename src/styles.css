@@ -43,18 +43,19 @@ body {
   justify-content: center;
   margin-top: 20px;
 }
-.tasks {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 10px;
-}
 .border {
   display: flex;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
   align-items: center;
-  justify-content: center;
   border-bottom: 2px solid black;
-  padding: 14px;
-  position: absolute;
-  width: 60%;
+  padding-bottom: 14px;
+  max-width: 530px;
+  margin-left: 310px;
+  margin-top: 20px;
+}
+
+.tasks {
+  font-size: 20px;
 }
