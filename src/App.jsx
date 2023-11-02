@@ -68,6 +68,9 @@ export default function App() {
         <footer className="footer">{mode === 'pomodoro' ? 'Time to focus' : 'Time for break'}</footer>
         <div className="border">
           <span className="tasks">Tasks</span>
+          <div>
+            <button>button</button>
+          </div>
         </div>
       </Container>
     </>
