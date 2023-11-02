@@ -69,7 +69,7 @@ export default function App() {
         <div className="border">
           <span className="tasks">Tasks</span>
           <div>
-            <button>button</button>
+            <button className="buton">button</button>
           </div>
         </div>
       </Container>
