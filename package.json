@@ -13,6 +13,7 @@
     "typecheck": "tsc --project jsconfig.json"
   },
   "dependencies": {
+    "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/themes": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
