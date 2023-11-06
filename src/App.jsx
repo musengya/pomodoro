@@ -1,6 +1,6 @@
 import { Box, Container, Flex, Heading, Tabs } from '@radix-ui/themes';
-
 import { useState } from 'react';
+import ProgressDemo from './components/Progress.jsx';
 import Timer from './components/Timer.jsx';
 import { INITIAL_TIME_IN_SECONDS } from './utils/constants.js';
 
@@ -31,11 +31,7 @@ export default function App() {
   return (
     <>
       <div>
-        {
-          <progress id="timers" max="100" value="50">
-            50%
-          </progress>
-        }
+        <ProgressDemo />
       </div>
       <Container size="4" style={{ marginTop: '20px', backgroundColor: 'greenyellow', height: '100vh' }}>
         <Flex direction="column" gap="8" align="center">
