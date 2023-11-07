@@ -1,6 +1,5 @@
-import React from 'react';
-
 import * as Progress from '@radix-ui/react-progress';
+import React from 'react';
 
 const ProgressDemo = () => {
   const [progress, setProgress] = React.useState(13);
