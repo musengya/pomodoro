@@ -59,6 +59,7 @@ export default function App() {
             </Box>
           </Tabs.Root>
         </Flex>
+
         <footer className="footer">{mode === 'pomodoro' ? 'Time to focus' : 'Time for break'}</footer>
         <div className="border">
           <span className="tasks">Tasks</span>
