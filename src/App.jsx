@@ -30,9 +30,7 @@ export default function App() {
 
   return (
     <>
-      <div>
-        <ProgressDemo />
-      </div>
+      <ProgressDemo />
       <Container size="4" style={{ marginTop: '20px', backgroundColor: 'greenyellow', height: '100vh' }}>
         <Flex direction="column" gap="8" align="center">
           <Heading as="h1" size="9">
