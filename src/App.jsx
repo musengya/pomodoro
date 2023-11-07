@@ -30,13 +30,12 @@ export default function App() {
 
   return (
     <>
-      <ProgressDemo />
       <Container size="4" style={{ marginTop: '20px', backgroundColor: 'greenyellow', height: '100vh' }}>
         <Flex direction="column" gap="8" align="center">
           <Heading as="h1" size="9">
             Pomodoro
           </Heading>
-
+          <ProgressDemo />
           <Tabs.Root value={mode} onValueChange={updateMode} style={{ backgroundColor: 'red' }}>
             <Tabs.List style={{ fontSize: '30px' }}>
               <Tabs.Trigger value="pomodoro">Pomodoro</Tabs.Trigger>
