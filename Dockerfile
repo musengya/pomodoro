@@ -1,5 +1,5 @@
 # Stage 1: Build the React application
-FROM node:18.18.2-bullseye-slim as build
+FROM node:20.9.0-bullseye-slim as build
 
 WORKDIR /app
 
