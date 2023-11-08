@@ -155,3 +155,6 @@ height: 1px;
 to run playwright tests:npx playwright test
 To show the ui as the tests run: npx playwright test --ui
 To open last HTML report run:npx playwright show-report
+
+Separator
+Visually or semantically separates content.
