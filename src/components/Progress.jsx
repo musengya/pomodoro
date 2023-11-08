@@ -1,11 +1,11 @@
 import * as Progress from '@radix-ui/react-progress';
-import React from 'react';
+import { useEffect, useState } from 'react';
 
-const ProgressDemo = () => {
-  const [progress, setProgress] = React.useState(13);
+export default function ProgressDemo() {
+  const [progress, setProgress] = useState(13);
 
-  React.useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 500);
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(66), 1000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -14,6 +14,4 @@ const ProgressDemo = () => {
       <Progress.Indicator className="ProgressIndicator" style={{ transform: `translateX(${100 - progress}%)` }} />
     </Progress.Root>
   );
-};
-
-export default ProgressDemo;
+}
