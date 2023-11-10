@@ -1,17 +1,20 @@
-import * as Progress from '@radix-ui/react-progress';
-import { useEffect, useState } from 'react';
+import * as PrimitiveProgress from '@radix-ui/react-progress';
+import PropTypes from 'prop-types';
 
-export default function ProgressDemo() {
-  const [progress, setProgress] = useState(13);
+Progress.propTypes = {
+  initialTime: PropTypes.number.isRequired,
+  timeRemaining: PropTypes.number.isRequired,
+};
 
-  useEffect(() => {
-    const timer = setTimeout(() => setProgress(66), 1000);
-    return () => clearTimeout(timer);
-  }, []);
+export default function Progress({ initialTime, timeRemaining }) {
+  const progress = timeRemaining === initialTime ? 0 : 100 - (timeRemaining / initialTime) * 100;
 
   return (
-    <Progress.Root className="ProgressRoot" value={progress}>
-      <Progress.Indicator className="ProgressIndicator" style={{ transform: `translateX(${100 - progress}%)` }} />
-    </Progress.Root>
+    <PrimitiveProgress.Root className="ProgressRoot" value={progress}>
+      <PrimitiveProgress.Indicator
+        className="ProgressIndicator"
+        style={{ transform: `translateX(-${100 - progress}%)` }}
+      />
+    </PrimitiveProgress.Root>
   );
 }
