@@ -1,22 +1,16 @@
 import PropTypes from 'prop-types';
-import { useEffect } from 'react';
-import { useTimer } from '../hooks/use-timer.js';
 import { formatRemainingTime } from '../utils/helpers.js';
 
 Timer.propTypes = {
   initialTime: PropTypes.number.isRequired,
-  switchMode: PropTypes.func.isRequired,
+  isRunning: PropTypes.bool.isRequired,
+  pauseTimer: PropTypes.func.isRequired,
+  resetTimer: PropTypes.func.isRequired,
+  startTimer: PropTypes.func.isRequired,
+  timeRemaining: PropTypes.number.isRequired,
 };
 
-export default function Timer({ initialTime, switchMode }) {
-  const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(initialTime);
-
-  useEffect(() => {
-    if (timeRemaining === 0) {
-      switchMode();
-    }
-  }, [switchMode, timeRemaining]);
-
+export default function Timer({ isRunning, initialTime, pauseTimer, resetTimer, startTimer, timeRemaining }) {
   const formattedTimeRemaining = formatRemainingTime(timeRemaining);
 
   const canReset = !isRunning && timeRemaining !== initialTime;

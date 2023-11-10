@@ -1,7 +1,8 @@
 import { Box, Container, Flex, Heading, Tabs } from '@radix-ui/themes';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ProgressDemo from './components/Progress.jsx';
 import Timer from './components/Timer.jsx';
+import { useTimer } from './hooks/use-timer.js';
 import { INITIAL_TIME_IN_SECONDS } from './utils/constants.js';
 
 const longBreakInterval = 4;
@@ -9,24 +10,26 @@ const longBreakInterval = 4;
 export default function App() {
   const [mode, setMode] = useState('pomodoro');
   const [session, setSession] = useState(1);
-
+  const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(mode);
   function updateMode(value) {
     setMode(value);
   }
 
-  function switchMode() {
-    if (mode === 'pomodoro') {
-      if (session === longBreakInterval) {
-        setMode('long-break');
-        setSession(0);
+  useEffect(() => {
+    if (timeRemaining === 0) {
+      if (mode === 'pomodoro') {
+        if (session === longBreakInterval) {
+          setMode('longBreak');
+          setSession(0);
+        } else {
+          setMode('shortBreak');
+        }
       } else {
-        setMode('short-break');
+        setMode('pomodoro');
+        setSession(session + 1);
       }
-    } else {
-      setMode('pomodoro');
-      setSession(session + 1);
     }
-  }
+  }, [mode, session, timeRemaining]);
 
   return (
     <>
@@ -39,21 +42,42 @@ export default function App() {
           <Tabs.Root value={mode} onValueChange={updateMode} style={{ backgroundColor: 'red' }}>
             <Tabs.List style={{ fontSize: '30px' }}>
               <Tabs.Trigger value="pomodoro">Pomodoro</Tabs.Trigger>
-              <Tabs.Trigger value="short-break">Short break</Tabs.Trigger>
-              <Tabs.Trigger value="long-break">Long break</Tabs.Trigger>
+              <Tabs.Trigger value="shortBreak">Short break</Tabs.Trigger>
+              <Tabs.Trigger value="longBreak">Long break</Tabs.Trigger>
             </Tabs.List>
 
             <Box px="4" pt="3" pb="2">
               <Tabs.Content value="pomodoro">
-                <Timer initialTime={INITIAL_TIME_IN_SECONDS.pomodoro} switchMode={switchMode} />
+                <Timer
+                  initialTime={INITIAL_TIME_IN_SECONDS.pomodoro}
+                  isRunning={isRunning}
+                  pauseTimer={pauseTimer}
+                  resetTimer={resetTimer}
+                  startTimer={startTimer}
+                  timeRemaining={timeRemaining}
+                />
               </Tabs.Content>
 
-              <Tabs.Content value="short-break">
-                <Timer initialTime={INITIAL_TIME_IN_SECONDS.shortBreak} switchMode={switchMode} />
+              <Tabs.Content value="shortBreak">
+                <Timer
+                  initialTime={INITIAL_TIME_IN_SECONDS.shortBreak}
+                  isRunning={isRunning}
+                  pauseTimer={pauseTimer}
+                  resetTimer={resetTimer}
+                  startTimer={startTimer}
+                  timeRemaining={timeRemaining}
+                />
               </Tabs.Content>
 
-              <Tabs.Content value="long-break">
-                <Timer initialTime={INITIAL_TIME_IN_SECONDS.longBreak} switchMode={switchMode} />
+              <Tabs.Content value="longBreak">
+                <Timer
+                  initialTime={INITIAL_TIME_IN_SECONDS.longBreak}
+                  isRunning={isRunning}
+                  pauseTimer={pauseTimer}
+                  resetTimer={resetTimer}
+                  startTimer={startTimer}
+                  timeRemaining={timeRemaining}
+                />
               </Tabs.Content>
             </Box>
           </Tabs.Root>

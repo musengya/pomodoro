@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { INITIAL_TIME_IN_SECONDS } from '../utils/constants.js';
 
 /**
  *
- * @param {number} initialTime
+ * @param {'pomodoro' | 'shortBreak' | 'longBreak'} mode
  * @returns {{
  * startTimer: () => void
  * timeRemaining: number;
@@ -11,7 +12,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
  * isRunning: boolean;
  * }}
  */
-export function useTimer(initialTime) {
+export function useTimer(mode) {
+  const initialTime = INITIAL_TIME_IN_SECONDS[mode];
   const [timeRemaining, setTimeremaining] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
   /**
@@ -26,6 +28,10 @@ export function useTimer(initialTime) {
     setIsRunning(false);
     setTimeremaining(initialTime);
   }, [initialTime]);
+
+  useEffect(() => {
+    resetTimer();
+  }, [mode, resetTimer]);
 
   useEffect(() => {
     if (timeRemaining === 0) {
