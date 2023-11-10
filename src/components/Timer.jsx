@@ -1,4 +1,6 @@
+// @ts-nocheck
 import PropTypes from 'prop-types';
+import { useSound } from 'use-sound';
 import { formatRemainingTime } from '../utils/helpers.js';
 
 Timer.propTypes = {
@@ -11,6 +13,8 @@ Timer.propTypes = {
 };
 
 export default function Timer({ isRunning, initialTime, pauseTimer, resetTimer, startTimer, timeRemaining }) {
+  const [playButtonPress] = useSound('button-press.wav');
+
   const formattedTimeRemaining = formatRemainingTime(timeRemaining);
 
   const canReset = !isRunning && timeRemaining !== initialTime;
@@ -22,16 +26,35 @@ export default function Timer({ isRunning, initialTime, pauseTimer, resetTimer, 
       </div>
       <div className="buttons">
         {!isRunning && (
-          <button onClick={startTimer} className="btn-1">
+          <button
+            onClick={() => {
+              playButtonPress();
+              startTimer();
+            }}
+            className="btn-1"
+          >
             Start
           </button>
         )}
         {isRunning && (
-          <button onClick={pauseTimer} className="btn-2">
+          <button
+            onClick={() => {
+              playButtonPress();
+              pauseTimer();
+            }}
+            className="btn-2"
+          >
             Pause
           </button>
         )}
-        <button disabled={!canReset} onClick={resetTimer} className="btn-3">
+        <button
+          disabled={!canReset}
+          onClick={() => {
+            playButtonPress();
+            resetTimer();
+          }}
+          className="btn-3"
+        >
           Reset
         </button>
       </div>

@@ -1,4 +1,6 @@
+// @ts-nocheck
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useSound } from 'use-sound';
 import { INITIAL_TIME_IN_SECONDS } from '../utils/constants.js';
 
 /**
@@ -16,6 +18,9 @@ export function useTimer(mode) {
   const initialTime = INITIAL_TIME_IN_SECONDS[mode];
   const [timeRemaining, setTimeremaining] = useState(initialTime);
   const [isRunning, setIsRunning] = useState(false);
+  const [playAlarmKitchen] = useSound('alarm-kitchen.mp3');
+  const [playTickingSlow, { stop: stopTickingSlow }] = useSound('ticking-slow.mp3', { loop: true });
+
   /**
    * @type {React.MutableRefObject<NodeJS.Timeout | null>}
    */
@@ -26,8 +31,9 @@ export function useTimer(mode) {
       clearInterval(intervalRef.current);
     }
     setIsRunning(false);
+    stopTickingSlow();
     setTimeremaining(initialTime);
-  }, [initialTime]);
+  }, [initialTime, stopTickingSlow]);
 
   useEffect(() => {
     resetTimer();
@@ -35,12 +41,14 @@ export function useTimer(mode) {
 
   useEffect(() => {
     if (timeRemaining === 0) {
+      playAlarmKitchen();
       resetTimer();
     }
-  }, [resetTimer, timeRemaining]);
+  }, [playAlarmKitchen, resetTimer, timeRemaining]);
 
   function startTimer() {
     setIsRunning(true);
+    playTickingSlow();
 
     intervalRef.current = setInterval(() => {
       setTimeremaining((timeRemaining) => timeRemaining - 1);
@@ -52,6 +60,7 @@ export function useTimer(mode) {
       clearInterval(intervalRef.current);
     }
     setIsRunning(false);
+    stopTickingSlow();
   }
 
   return {

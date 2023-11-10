@@ -96,7 +96,12 @@ export default function App() {
           </Tabs.Root>
         </Flex>
 
-        <footer className="footer">{timerMessage}!</footer>
+        <footer className="footer">
+          <Flex direction="column" align="center">
+            <Box>#{session}</Box>
+            <Box>{timerMessage}!</Box>
+          </Flex>
+        </footer>
         <div className="border">
           <span className="tasks">Tasks</span>
           <div>
