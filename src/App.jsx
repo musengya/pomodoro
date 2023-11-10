@@ -4,6 +4,7 @@ import Progress from './components/Progress.jsx';
 import Timer from './components/Timer.jsx';
 import { useTimer } from './hooks/use-timer.js';
 import { INITIAL_TIME_IN_SECONDS } from './utils/constants.js';
+import { formatRemainingTime } from './utils/helpers.js';
 
 /** @typedef {'pomodoro' | 'shortBreak' | 'longBreak'} Mode */
 
@@ -13,6 +14,12 @@ export default function App() {
   const [mode, setMode] = useState(/** @type {Mode} */ ('pomodoro'));
   const [session, setSession] = useState(1);
   const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(mode);
+
+  const timerMessage = mode === 'pomodoro' ? 'Time to focus' : 'Time for a break';
+
+  useEffect(() => {
+    document.title = `${formatRemainingTime(timeRemaining)} - ${timerMessage}!`;
+  }, [timeRemaining, timerMessage]);
 
   /**
    * @param {Mode} mode
@@ -89,7 +96,7 @@ export default function App() {
           </Tabs.Root>
         </Flex>
 
-        <footer className="footer">{mode === 'pomodoro' ? 'Time to focus' : 'Time for break'}</footer>
+        <footer className="footer">{timerMessage}!</footer>
         <div className="border">
           <span className="tasks">Tasks</span>
           <div>
