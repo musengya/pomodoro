@@ -7,8 +7,16 @@ Progress.propTypes = {
 };
 
 export default function Progress({ initialTime, timeRemaining }) {
-  const progress = timeRemaining === initialTime ? 0 : 100 - (timeRemaining / initialTime) * 100;
-
+  let progress = 0;
+  if (timeRemaining !== initialTime) {
+    progress = 100 - (timeRemaining / initialTime) * 100;
+  }
+  if (progress > 100) {
+    progress = 100;
+  }
+  if (progress < 0) {
+    progress = 0;
+  }
   return (
     <PrimitiveProgress.Root className="ProgressRoot" value={progress}>
       <PrimitiveProgress.Indicator
