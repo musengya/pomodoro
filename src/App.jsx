@@ -5,14 +5,20 @@ import Timer from './components/Timer.jsx';
 import { useTimer } from './hooks/use-timer.js';
 import { INITIAL_TIME_IN_SECONDS } from './utils/constants.js';
 
+/** @typedef {'pomodoro' | 'shortBreak' | 'longBreak'} Mode */
+
 const longBreakInterval = 4;
 
 export default function App() {
-  const [mode, setMode] = useState('pomodoro');
+  const [mode, setMode] = useState(/** @type {Mode} */ ('pomodoro'));
   const [session, setSession] = useState(1);
   const { isRunning, pauseTimer, resetTimer, startTimer, timeRemaining } = useTimer(mode);
-  function updateMode(value) {
-    setMode(value);
+
+  /**
+   * @param {Mode} mode
+   */
+  function updateMode(mode) {
+    setMode(mode);
   }
 
   useEffect(() => {

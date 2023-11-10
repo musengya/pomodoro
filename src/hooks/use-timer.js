@@ -3,7 +3,7 @@ import { INITIAL_TIME_IN_SECONDS } from '../utils/constants.js';
 
 /**
  *
- * @param {'pomodoro' | 'shortBreak' | 'longBreak'} mode
+ * @param {import('../App.jsx').Mode} mode
  * @returns {{
  * startTimer: () => void
  * timeRemaining: number;
