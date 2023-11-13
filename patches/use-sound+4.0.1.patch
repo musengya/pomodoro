@@ -1,0 +1,12 @@
+diff --git a/node_modules/use-sound/package.json b/node_modules/use-sound/package.json
+index f87268c..824f573 100644
+--- a/node_modules/use-sound/package.json
++++ b/node_modules/use-sound/package.json
+@@ -4,6 +4,7 @@
+   "version": "4.0.1",
+   "module": "dist/use-sound.esm.js",
+   "exports": {
++    "types": "./dist/index.d.ts",
+     "import": "./dist/use-sound.esm.js",
+     "require": "./dist/index.js"
+   },

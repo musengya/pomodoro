@@ -1,4 +1,3 @@
-// @ts-nocheck
 import PropTypes from 'prop-types';
 import { useSound } from 'use-sound';
 import { formatRemainingTime } from '../utils/helpers.js';

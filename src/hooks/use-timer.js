@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSound } from 'use-sound';
 import { INITIAL_TIME_IN_SECONDS } from '../utils/constants.js';
