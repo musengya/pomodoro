@@ -67,22 +67,17 @@ body {
   margin-top: 20px;
   font-size: 20px;
 }
-.border {
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  align-items: center;
-  border-bottom: 2px solid black;
-  padding-bottom: 14px;
-  max-width: 530px;
-  margin-left: 310px;
-  margin-top: 25px;
-}
 
 .tasks {
   font-size: 20px;
   text-decoration: none;
+}
+.border {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid black;
+  padding-bottom: 14px;
 }
 .buton {
   text-align: center;
