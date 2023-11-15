@@ -52,8 +52,12 @@ export default function App() {
             Pomodoro
           </Heading>
           <Progress initialTime={INITIAL_TIME_IN_SECONDS[mode]} timeRemaining={timeRemaining} />
-          <Tabs.Root value={mode} onValueChange={updateMode} style={{ backgroundColor: 'red', width: '890px' }}>
-            <Tabs.List size="2" style={{ fontSize: '30px', justifyContent: 'center', alignItems: 'center' }}>
+          <Tabs.Root
+            value={mode}
+            onValueChange={updateMode}
+            style={{ backgroundColor: 'red', width: '890px', height: '500px' }}
+          >
+            <Tabs.List size="2" style={{ fontSize: '30px', justifyContent: 'space-between', alignItems: 'center' }}>
               <Tabs.Trigger value="pomodoro">Pomodoro</Tabs.Trigger>
               <Tabs.Trigger value="shortBreak">Short break</Tabs.Trigger>
               <Tabs.Trigger value="longBreak">Long break</Tabs.Trigger>
