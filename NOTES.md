@@ -158,3 +158,25 @@ To open last HTML report run:npx playwright show-report
 
 Separator
 Visually or semantically separates content.
+
+The transform CSS property lets you rotate, scale, skew, or translate an element. It modifies the coordinate space of the CSS visual formatting model.
+translate() accepts two arguments. Here is the syntax:
+
+element {
+transform: translate(x, y);
+}
+The x argument can be a length or percentage value. It specifies the distance you wish to move the element from its original x-axis position.
+The y argument can be a length or percentage value. It defines the distance you wish to move the element from its original y-axis position.
+y is an optional argument.
+
+How to translate an element along only the X-axis:
+img {
+transform: translate(150px);
+width: 80%;
+}
+
+The snippet above used the translate() function to reposition the image 150px away from its original position along the x-axis.
+
+Note: translate(150px) is equivalent to translateX(150px).
+
+style={{ transform: `translate(${100 - progress}%)`
