@@ -46,13 +46,21 @@ export default function App() {
 
   return (
     <>
-      <Container size="3" style={{ marginTop: '20px', backgroundColor: 'greenyellow', height: '100vh' }}>
+      <Container
+        size="3"
+        style={{ marginTop: '20px', backgroundColor: 'greenyellow', height: '100vh', display: 'flex' }}
+      >
         <Flex direction="column" gap="8" align="center">
           <Heading as="h1" size="9">
             Pomodoro
           </Heading>
           <Progress initialTime={INITIAL_TIME_IN_SECONDS[mode]} timeRemaining={timeRemaining} />
-          <Tabs.Root value={mode} onValueChange={updateMode} style={{ backgroundColor: 'red' }}>
+          <Tabs.Root
+            className="tabroot"
+            value={mode}
+            onValueChange={updateMode}
+            style={{ flexWrap: 'wrap', backgroundColor: 'red' }}
+          >
             <Tabs.List
               size="2"
               style={{
