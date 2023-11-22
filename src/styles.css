@@ -88,3 +88,14 @@ body {
   padding: 8px;
   margin-left: 10px;
 }
+@media (min-width: 375px) and (max-width: 1024px) {
+  .tabroot {
+    flex-direction: column;
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aqua;
+  }
+}
