@@ -55,12 +55,7 @@ export default function App() {
             Pomodoro
           </Heading>
           <Progress initialTime={INITIAL_TIME_IN_SECONDS[mode]} timeRemaining={timeRemaining} />
-          <Tabs.Root
-            className="tabroot"
-            value={mode}
-            onValueChange={updateMode}
-            style={{ flexWrap: 'wrap', backgroundColor: 'red' }}
-          >
+          <Tabs.Root className="tabroot" value={mode} onValueChange={updateMode} style={{ backgroundColor: 'red' }}>
             <Tabs.List
               size="2"
               style={{
