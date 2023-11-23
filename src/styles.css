@@ -90,10 +90,10 @@ body {
 }
 @media (min-width: 375px) and (max-width: 1024px) {
   .tabroot {
-    flex-direction: column;
+    flex-direction: row;
     display: flex;
     flex-wrap: wrap;
-    flex-grow: 1;
+    flex-grow: 0;
     justify-content: space-between;
     align-items: center;
     background-color: aqua;
