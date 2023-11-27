@@ -13,6 +13,7 @@ import { INITIAL_TIME_IN_SECONDS } from '../utils/constants.js';
  * isRunning: boolean;
  * }}
  */
+
 export function useTimer(mode) {
   const initialTime = INITIAL_TIME_IN_SECONDS[mode];
   const [timeRemaining, setTimeremaining] = useState(initialTime);
