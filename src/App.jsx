@@ -61,14 +61,9 @@ export default function App() {
             onValueChange={updateMode}
             style={{
               backgroundColor: 'red',
-              // display: 'flex',
-              // flexGrow: 0,
-              // justifyContent: 'center',
-              // flexDirection: 'column',
             }}
           >
             <Tabs.List
-              className=".tablist"
               size="2"
               style={{
                 fontSize: '30px',
