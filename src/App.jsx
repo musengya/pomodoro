@@ -68,6 +68,7 @@ export default function App() {
             }}
           >
             <Tabs.List
+              className=".tablist"
               size="2"
               style={{
                 fontSize: '30px',
