@@ -64,9 +64,10 @@ export default function App() {
             }}
           >
             <Tabs.List
-              size="2"
+              className="tablist"
+              size="1"
               style={{
-                fontSize: '20px',
+                fontSize: '15px',
               }}
             >
               <Tabs.Trigger value="pomodoro">Pomodoro</Tabs.Trigger>
