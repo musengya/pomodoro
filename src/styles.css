@@ -92,6 +92,10 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 40px;
+  border: 2px dashed;
+  height: 60px;
+  border-radius: 8px;
 }
 @media (max-width: 400px) {
   .tabroot {
