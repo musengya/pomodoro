@@ -67,7 +67,6 @@ export default function App() {
               size="2"
               style={{
                 fontSize: '20px',
-                display: 'flex',
               }}
             >
               <Tabs.Trigger value="pomodoro">Pomodoro</Tabs.Trigger>
