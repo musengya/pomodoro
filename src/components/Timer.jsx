@@ -1,3 +1,4 @@
+import { Box } from '@radix-ui/themes';
 import PropTypes from 'prop-types';
 import { useSound } from 'use-sound';
 import { formatRemainingTime } from '../utils/helpers.js';
@@ -21,7 +22,7 @@ export default function Timer({ isRunning, initialTime, pauseTimer, resetTimer, 
   return (
     <>
       <div className="timer" aria-label={formattedTimeRemaining} data-testid="time-remaining">
-        <span>{formattedTimeRemaining}</span>
+        <Box style={{ fontSize: 60 }}>{formattedTimeRemaining}</Box>
       </div>
       <div className="buttons">
         {!isRunning && (
