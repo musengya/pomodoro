@@ -76,7 +76,7 @@ export default function App() {
             </Tabs.List>
 
             <Box px="4" pt="3" pb="2">
-              <Tabs.Content className="tabscontent" value="pomodoro">
+              <Tabs.Content value="pomodoro">
                 <Timer
                   initialTime={INITIAL_TIME_IN_SECONDS.pomodoro}
                   isRunning={isRunning}
