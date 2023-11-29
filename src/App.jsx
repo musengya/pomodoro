@@ -51,9 +51,13 @@ export default function App() {
         style={{ marginTop: '20px', backgroundColor: 'greenyellow', height: '100vh', display: 'flex' }}
       >
         <Flex direction="column" gap="8" align="center">
-          <Heading as="h1" size="9">
-            Pomodoro
-          </Heading>
+          <div>
+            <Heading as="h1" size="9">
+              Pomodoro
+            </Heading>
+            <button></button>
+          </div>
+
           <Progress initialTime={INITIAL_TIME_IN_SECONDS[mode]} timeRemaining={timeRemaining} />
           <Tabs.Root
             className="tabroot"
