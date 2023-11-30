@@ -50,7 +50,7 @@ export default function App() {
         size="3"
         style={{ marginTop: '20px', backgroundColor: 'greenyellow', height: '100vh', display: 'flex' }}
       >
-        <Flex direction="column" gap="8" align="center">
+        <Flex direction="column" gap="4" align="center">
           <Heading as="h1" size="7">
             Pomodoro
           </Heading>
