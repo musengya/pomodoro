@@ -180,3 +180,19 @@ The snippet above used the translate() function to reposition the image 150px aw
 Note: translate(150px) is equivalent to translateX(150px).
 
 style={{ transform: `translate(${100 - progress}%)`
+
+/_ @media (min-width: 300px) and (max-width: 1024px) {
+.tabroot {
+flex-direction: row;
+display: flex;
+flex-grow: 1;
+justify-content: center;
+align-items: center;
+width: 100vw;
+}
+}
+@media (min-width: 300px) {
+.tablist {
+/_ flex-direction: column; _/
+}
+} _/
