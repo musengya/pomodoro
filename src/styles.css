@@ -142,6 +142,8 @@ input {
   font-weight: 500;
   color: var(--mauve-12);
   font-size: 17px;
+  display: flex;
+  justify-content: center;
 }
 
 .DialogDescription {
