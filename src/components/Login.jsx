@@ -52,11 +52,6 @@ const DialogDemo = () => (
             <button className="Button green">Log in with Email</button>
           </Dialog.Close>
         </div>
-        <div style={{ display: 'flex', marginTop: 25, justifyContent: 'center' }}>
-          <Dialog.Close asChild>
-            <button className="Button green">Save changes</button>
-          </Dialog.Close>
-        </div>
         <div style={{ display: 'flex', marginTop: 25, justifyContent: 'center', textDecoration: 'underline' }}>
           <Dialog.Close asChild>
             <button>Forgot Password</button>
