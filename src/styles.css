@@ -141,7 +141,7 @@ input {
   margin: 0;
   font-weight: 500;
   color: var(--mauve-12);
-  font-size: 17px;
+  font-size: 20px;
   display: flex;
   justify-content: center;
 }
