@@ -39,7 +39,7 @@ const DialogDemo = () => (
           <label className="Label" htmlFor="email">
             Email
           </label>
-          <input className="Input" id="email" defaultValue="Pedro Duarte" />
+          <input className="Input" id="email" defaultValue="example@example.com" />
         </fieldset>
         <fieldset className="Fieldset">
           <label className="Label" htmlFor="password">
