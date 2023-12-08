@@ -55,12 +55,12 @@ export default function App() {
           <Heading as="h1" size="7">
             Pomodoro
           </Heading>
-          <div className="settings">
-            <div>
-              {' '}
-              <DialogDemo />
-            </div>
+          {/* <div className="settings"> */}
+          <div>
+            {' '}
+            <DialogDemo />
           </div>
+          {/* </div> */}
 
           <Progress initialTime={INITIAL_TIME_IN_SECONDS[mode]} timeRemaining={timeRemaining} />
           <Tabs.Root
