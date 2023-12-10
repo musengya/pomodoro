@@ -8,7 +8,7 @@ const DialogDemo = () => (
     <Dialog.Content style={{ maxWidth: 450 }}>
       <Dialog.Title>Login</Dialog.Title>
       <Dialog.Description size="2" mb="4">
-        Make changes to your profile.
+        Log into your account.
       </Dialog.Description>
 
       <Flex direction="column" gap="3">
