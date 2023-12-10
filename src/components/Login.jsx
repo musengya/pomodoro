@@ -2,11 +2,11 @@ import { Button, Dialog, Flex, Text, TextField } from '@radix-ui/themes';
 const DialogDemo = () => (
   <Dialog.Root>
     <Dialog.Trigger>
-      <Button>Login</Button>
+      <Button style={{ marginLeft: '500px' }}>Login</Button>
     </Dialog.Trigger>
 
     <Dialog.Content style={{ maxWidth: 450 }}>
-      <Dialog.Title>Edit profile</Dialog.Title>
+      <Dialog.Title>Login</Dialog.Title>
       <Dialog.Description size="2" mb="4">
         Make changes to your profile.
       </Dialog.Description>
