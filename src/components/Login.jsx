@@ -16,13 +16,13 @@ const DialogDemo = () => (
           <Text as="div" size="2" mb="1" weight="bold">
             Email
           </Text>
-          <TextField.Input defaultValue="Freja Johnsen" placeholder="Enter your full name" />
+          <TextField.Input defaultValue="Freja Johnsen" placeholder="Enter your email" />
         </label>
         <label>
           <Text as="div" size="2" mb="1" weight="bold">
             Password
           </Text>
-          <TextField.Input defaultValue="freja@example.com" placeholder="Enter your email" />
+          <TextField.Input defaultValue="freja@example.com" placeholder="Enter your password" />
         </label>
       </Flex>
 
