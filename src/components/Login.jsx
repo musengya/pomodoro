@@ -26,14 +26,18 @@ const DialogDemo = () => (
         </label>
       </Flex>
 
-      <Flex gap="3" mt="4" justify="end">
+      <Flex gap="3" mt="4" justify="center">
         <Dialog.Close>
-          <Button variant="soft" color="gray">
-            Cancel
+          <Button
+            style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}
+            variant="soft"
+            color="gray"
+          >
+            Log in with Email
           </Button>
         </Dialog.Close>
         <Dialog.Close>
-          <Button>Save</Button>
+          <Button>Forgot password</Button>
         </Dialog.Close>
       </Flex>
     </Dialog.Content>
