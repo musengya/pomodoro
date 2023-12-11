@@ -14,13 +14,13 @@ const DialogDemo = () => (
       <Flex direction="column" gap="3">
         <label>
           <Text as="div" size="2" mb="1" weight="bold">
-            Name
+            Email
           </Text>
           <TextField.Input defaultValue="Freja Johnsen" placeholder="Enter your full name" />
         </label>
         <label>
           <Text as="div" size="2" mb="1" weight="bold">
-            Email
+            Password
           </Text>
           <TextField.Input defaultValue="freja@example.com" placeholder="Enter your email" />
         </label>
