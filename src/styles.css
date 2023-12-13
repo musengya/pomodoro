@@ -97,6 +97,10 @@ body {
   height: 60px;
   border-radius: 8px;
 }
+.password {
+  text-decoration: underline;
+  flex-wrap: wrap;
+}
 
 @media (max-width: 400px) {
   .tabroot {
