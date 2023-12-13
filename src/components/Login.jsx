@@ -29,15 +29,17 @@ const DialogDemo = () => (
       <Flex gap="3" mt="4" justify="center">
         <Dialog.Close>
           <Button
-            style={{ justifyContent: 'center', alignItems: 'center', display: 'flex' }}
+            style={{ justifyContent: 'center', alignItems: 'center', display: 'flex', maxWidth: '100vw' }}
             variant="soft"
             color="gray"
           >
             Log in with Email
           </Button>
         </Dialog.Close>
+      </Flex>
+      <Flex gap="3" mt="4" justify="center">
         <Dialog.Close>
-          <Button>Forgot password</Button>
+          <div className="password">Forgot password</div>
         </Dialog.Close>
       </Flex>
     </Dialog.Content>
